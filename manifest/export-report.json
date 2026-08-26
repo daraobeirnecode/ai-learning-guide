@@ -1,0 +1,41 @@
+{
+  "generated": "2026-08-26",
+  "source_documents": 97,
+  "knowledge_hub": 68,
+  "inish_labs": 29,
+  "content_modes": {
+    "sanitized-copy": 66,
+    "privacy-stub": 28,
+    "source-stub": 3
+  },
+  "redactions": {
+    "operator_name": 130,
+    "privacy_stub": 28,
+    "profile_name": 66,
+    "private_path": 48,
+    "device_name": 5,
+    "local_username": 109,
+    "ip_address": 4,
+    "employer_name": 2,
+    "copyright_stub": 3,
+    "email": 3
+  },
+  "post_audit_hardening": {
+    "client_case_identifiers_generalized": true,
+    "personal_runtime_notes_privacy_stubbed": true,
+    "third_party_captures_source_stubbed": true,
+    "remote_pipe_install_examples_replaced": true,
+    "global_npm_examples_pinned": {
+      "claude-code": "2.1.246",
+      "codex": "0.150.0",
+      "n8n": "2.36.7"
+    },
+    "private_ssh_key_copy_example_removed": true,
+    "private_source_paths_removed": true,
+    "live_runtime_documents_privacy_stubbed": true,
+    "third_party_n8n_compilation_source_stubbed": true,
+    "unbundled_attachment_embeds_removed": true,
+    "deployment_status_notes_privacy_stubbed": true,
+    "live_memory_and_semantic_search_notes_privacy_stubbed": true
+  }
+}

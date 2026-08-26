@@ -1,0 +1,134 @@
+[
+  {
+    "url": "https://code.claude.com/docs/en/skills",
+    "status": 200,
+    "final_url": "https://code.claude.com/docs/en/skills",
+    "error": null
+  },
+  {
+    "url": "https://code.claude.com/docs/en/plugins",
+    "status": 200,
+    "final_url": "https://code.claude.com/docs/en/plugins",
+    "error": null
+  },
+  {
+    "url": "https://code.claude.com/docs/en/hooks-guide",
+    "status": 200,
+    "final_url": "https://code.claude.com/docs/en/hooks-guide",
+    "error": null
+  },
+  {
+    "url": "https://code.claude.com/docs/en/mcp",
+    "status": 200,
+    "final_url": "https://code.claude.com/docs/en/mcp",
+    "error": null
+  },
+  {
+    "url": "https://learn.chatgpt.com/docs/build-skills",
+    "status": 200,
+    "final_url": "https://learn.chatgpt.com/docs/build-skills",
+    "error": null
+  },
+  {
+    "url": "https://learn.chatgpt.com/docs/customization/overview",
+    "status": 200,
+    "final_url": "https://learn.chatgpt.com/docs/customization/overview",
+    "error": null
+  },
+  {
+    "url": "https://learn.chatgpt.com/docs/agent-configuration/agents-md",
+    "status": 200,
+    "final_url": "https://learn.chatgpt.com/docs/agent-configuration/agents-md",
+    "error": null
+  },
+  {
+    "url": "https://learn.chatgpt.com/docs/config-file/config-basic",
+    "status": 200,
+    "final_url": "https://learn.chatgpt.com/docs/config-file/config-basic",
+    "error": null
+  },
+  {
+    "url": "https://hermes-agent.nousresearch.com/docs/",
+    "status": 200,
+    "final_url": "https://hermes-agent.nousresearch.com/docs/",
+    "error": null
+  },
+  {
+    "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins",
+    "status": 200,
+    "final_url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins",
+    "error": null
+  },
+  {
+    "url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp",
+    "status": 200,
+    "final_url": "https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp",
+    "error": null
+  },
+  {
+    "url": "https://code.claude.com/docs/en/overview",
+    "status": 200,
+    "final_url": "https://code.claude.com/docs/en/overview",
+    "error": null
+  },
+  {
+    "url": "https://learn.chatgpt.com/docs/codex/cli",
+    "status": 200,
+    "final_url": "https://learn.chatgpt.com/docs/codex/cli",
+    "error": null
+  },
+  {
+    "url": "https://hermes-agent.nousresearch.com/docs/user-guide/configuration",
+    "status": 200,
+    "final_url": "https://hermes-agent.nousresearch.com/docs/user-guide/configuration",
+    "error": null
+  },
+  {
+    "url": "https://hermes-agent.nousresearch.com/docs/user-guide/profiles",
+    "status": 200,
+    "final_url": "https://hermes-agent.nousresearch.com/docs/user-guide/profiles",
+    "error": null
+  },
+  {
+    "url": "https://modelcontextprotocol.io/docs/learn/architecture",
+    "status": 200,
+    "final_url": "https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture",
+    "error": null
+  },
+  {
+    "url": "https://www.postgresql.org/docs/current/tutorial.html",
+    "status": 200,
+    "final_url": "https://www.postgresql.org/docs/current/tutorial.html",
+    "error": null
+  },
+  {
+    "url": "https://postgis.net/documentation/",
+    "status": 200,
+    "final_url": "https://postgis.net/documentation/",
+    "error": null
+  },
+  {
+    "url": "https://docs.n8n.io/build-your-first-workflow/",
+    "status": 200,
+    "final_url": "https://docs.n8n.io/build-your-first-workflow",
+    "error": null
+  },
+  {
+    "url": "https://docs.n8n.io/build/understand-workflows/create-and-run-workflows/",
+    "status": 200,
+    "final_url": "https://docs.n8n.io/build/understand-workflows/create-and-run-workflows",
+    "error": null
+  },
+  {
+    "url": "https://docs.n8n.io/build/understand-workflows/understand-executions/",
+    "status": 200,
+    "final_url": "https://docs.n8n.io/build/understand-workflows/understand-executions",
+    "error": null
+  },
+  {
+    "url": "https://docs.n8n.io/",
+    "status": 200,
+    "final_url": "https://docs.n8n.io/",
+    "error": null
+  }
+]

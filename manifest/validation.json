@@ -1,0 +1,36 @@
+{
+  "chapter_anchors": 21,
+  "collections": {
+    "Inish Labs": 29,
+    "Knowledge Hub": 68
+  },
+  "content_modes": {
+    "privacy-stub": 28,
+    "sanitized-copy": 66,
+    "source-stub": 3
+  },
+  "errors": [],
+  "external_links_healthy": 22,
+  "files": 111,
+  "local_links_checked": 489,
+  "manifest_sources": 97,
+  "markdown_files": 103,
+  "sensitive_hits": {
+    "bot_handle": 0,
+    "email": 0,
+    "mac_user_path": 0,
+    "obsidian_uri": 0,
+    "phone": 0,
+    "private_key": 0,
+    "private_key_copy": 0,
+    "provider_token": 0,
+    "remote_pipe_exec": 0,
+    "source_path_frontmatter": 0,
+    "telegram_chat_id": 0,
+    "unpinned_global_npm": 0,
+    "wikilink": 0,
+    "windows_user_path": 0,
+    "wsl_user_path": 0
+  },
+  "unique_guide_sources": 97
+}

@@ -1,0 +1,110 @@
+d55bc3844ddd6a5038e5437688bae6f4d999d8213399272f48c2bbb9da1c0001  .gitattributes
+8428f3625ad7dbabd7786f4e12f5b10a5649610e3fd9138c17ecb9673028c946  .gitignore
+4d8e11c84ced287476f9afaa9cd4d01cfac5898e520e9a013846167c41f2f099  CONTRIBUTING.md
+abd5544b1045145bbb2aa5fd261996bfb61d6ff0c3b50dafd021d9a149ab4d98  LICENSE.md
+52bfb396f3faff9c2d7c9f929f7481a5b3e55c4aa9a1ec3c32b847a06820686a  README.md
+acb89db2bdc833e92d9198742b235abb8b135f14c370676d258e6abb4af95a78  SECURITY.md
+9a1a636456094a3cd8258d11046be6e49f9d5c1144f90a565e2fe26a0b0aaee1  SOURCE_INDEX.md
+9c21eae3222d7d052edd5ec740dae9f437574002921ba7c47be0b16964ed438c  guide/MASTER_LEARNING_GUIDE.md
+0b98a8c90f33b0a2405085a7d6151d2a541e8e8ed0ae0286c332b35f948b1846  manifest/export-report.json
+d7a0ec22fcff2638dac6a1bc6c1dac4d87e2a384a83e107b3243e0edaca0bf6f  manifest/external-links.json
+b2294b241f119eed8c2d784ead6eb65d4d2772ae9a031e2ac81ea8c707d54698  manifest/sources.json
+cbddeb5b6b0101161bf3d7ffd3db26e499c6b3a6587d8c8c0554157db7f0c491  manifest/validation.json
+f68ac966ee299f692fb801a5d49a023293bc79972a425bc88bfc8b1f90c1471f  scripts/validate_package.py
+905fe9bada9e6069c7ea7a31fd4204626e1b5d6110fab3e3a5c115104aca102d  sources/inish-labs/00 Inbox/GIS + AI 50-Offer Delivery Handbook — 2026-08-23/00 — START HERE.md
+f0c4f259c67e532ce1dc78a507b1bf1d2cc6ef6fb08767452f2042b9b116cb3f  sources/inish-labs/00 Start Here.md
+6fc23126c54f8ff982085d81e02d658eed079ac579402756444d20b908bc05b2  sources/inish-labs/01 Business/00 START HERE — Inish Labs Master Plan.md
+63e7dc29f2357096bdc838152f64d70fc1c2969ad398d1f0d00f6050dcdbae2f  sources/inish-labs/01 Business/Inish Labs GIS & AI Server — 50 Workflow Commercial Service Guide.md
+0574d61691ef5fcd863148870e7261eecd8c223ef2ea891eca39735615501d67  sources/inish-labs/01 Business/Inish Labs Hetzner Architecture — Machine Specifications, Capabilities and Service Map.md
+516d7070757928718fa3fb29f553d516f3cca34affbfce91a76d1f77d153bd43  sources/inish-labs/01 Business/Inish Labs Private AI Operations Service — 50 Workflow Catalog and Business Opportunity.md
+8f5cf30686865409ec423c7b8c3bdfe0c5a89c658dc33e2c3f85bb1434d68cc3  sources/inish-labs/01 Business/Inish Labs Technical Lead Operating Guide — People, Code, AI Access and AI OS.md
+2bfd8f5c3d6d14285322cf7d70dcaf3a039cb0b27bbc36db2d79622264c69b86  sources/inish-labs/02 Knowledge/AI Automation/AI Automation Master Guide deploy.md
+0b89b0e64db4631656d30bdbdd6651ee28b4952e1cba085c4ad7c6bd8bd37033  sources/inish-labs/02 Knowledge/AI Automation/AI Automation Stack Source Index.md
+bd8a5fe4095f8944a2f21c4fb97dd4298475eb595d7a957779660fb33ece1a63  sources/inish-labs/02 Knowledge/AI Automation/AI Stack/From Nothing to Paying Customer — Hand-Holding Build Guide.md
+3f4ff832c08d898aa07d0fc6b4b34c7309e22a4f2b435beb5176a4a5dd1a3455  sources/inish-labs/02 Knowledge/AI Automation/Architecture/Apache AGE.md
+b35138eb1b021db4424835222eb08064702d5fd036b09ef4837984d3f83244b8  sources/inish-labs/02 Knowledge/AI Automation/Architecture/Architecture Overview.md
+d01c7f6d8368466b0c1ef001d54a0ebd27d390c7e13d421e685156a6c042559d  sources/inish-labs/02 Knowledge/AI Automation/Architecture/Backups, Cron and Snapshots.md
+1783c4e516119b67d3847761d6f4f167a375f2954e7e0848aa9c0b0e7f521c36  sources/inish-labs/02 Knowledge/AI Automation/Architecture/Cloudflare Tunnel.md
+4634513f297e8e1cfc3d9ae56f116c30e29be9de082a8f10911cd83a236bd3d0  sources/inish-labs/02 Knowledge/AI Automation/Architecture/Docker and Docker Compose.md
+1ff90de71718568dc8ea69f84ce9f261c3325c1dfa6cafa91f2ff0b633171eef  sources/inish-labs/02 Knowledge/AI Automation/Architecture/Langfuse.md
+e7e1a5faf0f3a38afbc98103f148b0c0c421d9612f2c53e9d218fc3fa5f577f9  sources/inish-labs/02 Knowledge/AI Automation/Architecture/LiteLLM.md
+f367d8eaf00a46975abc02f857b6241093355c9794a62a2941384464018a27a5  sources/inish-labs/02 Knowledge/AI Automation/Architecture/PostGIS.md
+418f84a5df52db30be9ea08607fe45f93e22c8be55f67daaa357e2a3e29312fb  sources/inish-labs/02 Knowledge/AI Automation/Architecture/Postgres.md
+a6dcf18076ec49211dc32e333feba4ad954403f0c832979bd4b147d80ca0e5dd  sources/inish-labs/02 Knowledge/AI Automation/Architecture/Redis.md
+a2367951fc7d597ed06632eccd701e154170a2149c12cecf6974e3a23a432fa2  sources/inish-labs/02 Knowledge/AI Automation/Architecture/Tailscale.md
+2b5efe7e90915b439e6ca8bc68dd1262c84aa820bbbd9abe32577054fafed443  sources/inish-labs/02 Knowledge/AI Automation/Architecture/pgvector.md
+51626f51a538a3a7a10fd3817050a95ae8c5426c55ae3227efd33a859dbbb1f0  sources/inish-labs/02 Knowledge/AI Automation/n8n personal/00 README - n8n Personal Master Playbook.md
+119326a8dbd553bb24096b8bca5086f89a84cca22aa643aca18e58d6ab62e3f0  sources/inish-labs/02 Knowledge/AI Automation/n8n smb/00 README - n8n SMB Master Playbook.md
+987a990d5cb56ee2051e3165b418de7a565da840c7221b82137b6cb1f0d0e975  sources/inish-labs/02 Knowledge/GIS/Agent Docs/Building a GIS Agent Harness — Build Guide.md
+b9d460664218500f09c4b3b2e058819378e7cc4eba73324921f9ec059c62fd6b  sources/inish-labs/02 Knowledge/GIS/Agent Docs/GIS Agent Harness — Core Components Guide.md
+f72d85059058f5f6f7a3d35d4ad5ddbaf9f96b26e0f23059f6063bc0aedd0db5  sources/inish-labs/02 Knowledge/GIS/GIS + AI Server on Hetzner — Fable 5 Deploy Guide.md
+a4e3b8741ce1f76d8c7576f0e2708a421a2db51b06f6713a5c0ee5a9455110e5  sources/inish-labs/02 Knowledge/INDEX.md
+d54710676e39af3d1710366ce5f967ddd231d30da200ef3c407e5a2aca27987d  sources/inish-labs/02 Knowledge/inish labs mental model/00 INDEX.md
+9ceb0ea60accd130d841d913f8245a7626149d6193690fd479330581f1f0cb2c  sources/knowledge-hub/01 Home/Home.md
+a2985bb1bcd89c21656e1831bbed2137dcb8cf0a8259b80801c2c4a4a1b4375d  sources/knowledge-hub/01 Home/Learning Home.md
+4aad3ed8a5984f75d90943a39451113afb831df90d822ce2e289f17753d36a45  sources/knowledge-hub/01 Home/Maps/AI and Agents.md
+7310dcc9a4680d6c18083e61e0527cad2f90c19e3ebfd21a5e312c46b7be9f05  sources/knowledge-hub/01 Home/Maps/Automation and Infrastructure.md
+0c216c4a83687d6ed75e307e1a3cf08dc44bfa685efe4e7c10ae5abbf82eed68  sources/knowledge-hub/01 Home/Maps/Claude Code.md
+3ae73b4cfe2fb83e99c919631b960cff2b7fc502722026e45bcf6b8121d2e01e  sources/knowledge-hub/01 Home/Maps/GIS and AI.md
+14bc7eeee9bfecfd73415e7477aecf2ec0f40d740ed7558bd0e13d03cc8ca2b7  sources/knowledge-hub/01 Home/Maps/Inish Labs and Commercial Work.md
+f36c71910ae3fd676b74f63d0cc47ff917aa6f695b04ecccd43e0935db9a6307  sources/knowledge-hub/01 Home/Maps/Learning and Research.md
+c184906fe6016354002cf7e10a4bb79b966f7c51cd9ab96bb8ddf9426688d154  sources/knowledge-hub/01 Home/Maps/Master Knowledge Map.md
+4576d7764d9d9b8b28a1d14feea41e0070c60614e845aebd33425e373feca245  sources/knowledge-hub/03 Learning/AI Foundations/AI.md
+a8bbfa28cd6ef58e097304851c862d668139c6ac13e006b70bc2b198661d6e62  sources/knowledge-hub/03 Learning/AI Foundations/Concepts/Concepts.md
+94f08a0a0701abaa653ba6180380bec21dae029d795ca00b6893e6fd1f0954d6  sources/knowledge-hub/03 Learning/AI Foundations/Concepts/context-as-input.md
+6d62deb7c18fe324fbdf658550107161f511939bcd51819ef339a7e9864be93f  sources/knowledge-hub/03 Learning/AI Foundations/Concepts/feedback-loops.md
+d786b250a1832c383a0921d3f05331637f8334b28304323cf5765ce31514b2b0  sources/knowledge-hub/03 Learning/AI Foundations/Concepts/hooks.md
+9e31bbc3988746c40efd656305da561be5c0c2feb149f447cded73b7be08556b  sources/knowledge-hub/03 Learning/AI Foundations/Concepts/instructions-as-constraints.md
+657f14d7f032071ec8a57299566d74de8a883c2794d52c256e4fae6eb19a7ae7  sources/knowledge-hub/03 Learning/AI Foundations/Concepts/planning-vs-execution.md
+2de4451228df3abc0c01a679e4b582b6d912617139470fdefa19197cb0c251fa  sources/knowledge-hub/03 Learning/AI Foundations/Concepts/prompts-as-artifacts.md
+640d74ff42327f077c0cb88aa3caab00af643edd3ce3524b10653462b759f887  sources/knowledge-hub/03 Learning/AI Foundations/Concepts/retrieval-without-the-jargon.md
+5c06bc04102760317aa141bc9210cece7401f1c5a9eb23a67961b5b5b9e1685a  sources/knowledge-hub/03 Learning/AI Foundations/Concepts/the-agent-loop.md
+770594eb7b779fdaf5dd4f0e0bcba9b44a7f3f90d03af5ee7be4ae72fed1fe79  sources/knowledge-hub/03 Learning/AI Foundations/Concepts/tool-use-and-mcp.md
+a6b1a18a538ae1133576da912fdcb5838676bf3e80879e616c6d690f48d85295  sources/knowledge-hub/03 Learning/AI Foundations/Concepts/trust-and-sandboxing.md
+510a0099ea32de3f4f9b28ed296c45e459bb74710f9ba87158a5167d75585575  sources/knowledge-hub/03 Learning/AI Learning/AI Learning Index.md
+e8ad85bfe792789693ff8dceb894d689f8885b934eed8583ab22828d1e270d70  sources/knowledge-hub/03 Learning/AI Learning/AI Learning Stack Daily Curriculum.md
+f4c93910ac192c9b83b7d7b380de42fe7382fb371fb49923971cf7b28ffa1c92  sources/knowledge-hub/03 Learning/AI Learning/AI Security/AI Security — Comprehensive Guide.md
+f4599f784e4eb1b27ae001208cecc29e295e37f6954de6adb49cbdcfd9306c8e  sources/knowledge-hub/03 Learning/AI Learning/Agent Content/Agent Memory/Agent Memory — Complete Management Guide.md
+67010b8ad6a87d1172064bfa808d93547583cb85cfff78a81983345bfc97a7a2  sources/knowledge-hub/03 Learning/AI Learning/Agent Content/Agentic methods/Agentic Methods - Anatomy of an Agent Harness.md
+62ac9aa5d964f2e7b972725c03612d80eb205bb8028c657418e78b7fda058416  sources/knowledge-hub/03 Learning/AI Learning/Agent Content/Agents/Articles/AI Agent Skills Explained Simply.md
+d4c82fce7ec3e91538b1f674d63e11f5f5da8b9a318810251e84051db1d050ba  sources/knowledge-hub/03 Learning/AI Learning/Agent Content/Agents/X Posts/From Prompting Agents to Loop Engineering - Omar X Article.md
+f51354781f7e9db4ce6f405b0595b5344cd94e7aef78ab0bf3523c2932f23a36  sources/knowledge-hub/03 Learning/AI Learning/Agent Engineering Methods Lab/README.md
+129e940461fa27cc8f7c039b1fd7113af35a4f8b0565733a499e61d627fd5032  sources/knowledge-hub/03 Learning/AI Learning/Agent Engineering Methods Lab/methods/04_loop_engineering/CONTEXT.md
+64e8f3e355ad012f0cc088ced6af7b3d279761f213b71d3e84ae44e33cb28019  sources/knowledge-hub/03 Learning/AI Learning/Claude Code/ClaudeCode-Obsidian-GitHub-Guide.md
+31ad679a7862ad64f6029a4de103cc0713fb20a9be95798062af5c6b340747e8  sources/knowledge-hub/03 Learning/AI Learning/Claude Code/Guides/00 START HERE — Claude Code Mastery Path.md
+27e2d79dfa2ece8672328480c74d2863b2ee25bccd10c30d0d83f027c1bfb44d  sources/knowledge-hub/03 Learning/AI Learning/Claude Code/Guides/01 Key Concepts & Definitions.md
+3835633033c2bd91d59d2d819d353ecc9ff2f3c327971668ca41526c72de9dd4  sources/knowledge-hub/03 Learning/AI Learning/Claude Code/Guides/02 Setup & Best Practices.md
+bd33a4d2c2bd1b9489a561a99658825805d7e3ffea849097fd1c7536b9e03c9d  sources/knowledge-hub/03 Learning/AI Learning/Claude Code/Guides/03 Agents, MCP, Commands & Skills.md
+1d7b51b54b1d3fffa95963c1d2454d6dacd566c5bbdf6baab5c853976e2f6d7f  sources/knowledge-hub/03 Learning/AI Learning/Claude Code/Guides/04 The 20 Starter Skills.md
+1b9a8934edb139452ece0eb0a568f9ecfc81f147fbfdfa59d7605ac2b92c77b0  sources/knowledge-hub/03 Learning/AI Learning/Claude Code/Guides/05 Ten Tutorials.md
+8dece80f4ae4c119f99fe1366785772f046cc115bbbcf413d46401b826a004a9  sources/knowledge-hub/03 Learning/AI Learning/Claude Code/Guides/Claude Code and Codex Agents - Full Implementation Guide.md
+0531fb91fe13481791c47ad27481ce228e3fba0f9ee8acd7dc66f5e8d0275336  sources/knowledge-hub/03 Learning/AI Learning/Claude Code/claude-code-master-guide.md
+9b65238d582b51cda97ed08387a0fe0710be26674c2ac106633d3aef80f5f5c6  sources/knowledge-hub/03 Learning/AI Learning/Codex/Guides/00 START HERE — Codex Mastery Path.md
+b4e5f4c11ff1f2c73acf6c332e51af96e996dd7315c12198b59b1eb39bcc9150  sources/knowledge-hub/03 Learning/AI Learning/Codex/Guides/01 Key Concepts & Definitions.md
+d80e5872d1410701dc1ea212516fee877b061eef7f3756602b3c39f1e4eb21b7  sources/knowledge-hub/03 Learning/AI Learning/Codex/Guides/02 Setup & Best Practices.md
+b29f5621ff791078f93e725fe3c673cbab3ee84eb4f07e76b55f4fa3cfe6e099  sources/knowledge-hub/03 Learning/AI Learning/Codex/Guides/03 Agents, MCP, Commands & Prompts.md
+5d29d65e2271cfa8fbca6cf7b0ee0565479095cc0e055df2f6a6a6d187d0d06c  sources/knowledge-hub/03 Learning/AI Learning/Codex/Guides/04 The 20 Starter Prompts & Skills.md
+ddbcc2a133a6174f79fbf23dba8b86d6c90e0277f0070471376e57c1affc827e  sources/knowledge-hub/03 Learning/AI Learning/Codex/Guides/05 Ten Tutorials.md
+48b99b46eb7ccc0b5e8d07427100d774f7cac4ec564f3b0d7a27ab0f88d39db9  sources/knowledge-hub/03 Learning/AI Learning/Engineering Agents/Prompt, Harness, Loop, and Graph Engineering for AI Agents — GIS Implementation Guide.md
+ba1716063c5da4dea8e8415d1bb5665c8a4e200195f089ed0fd432a649bae92b  sources/knowledge-hub/03 Learning/AI Learning/General AI/LLM AI Automation Master Guide.md
+2f71033d8a3ab6a1e59bf76234d74f99ea8d307ce428b2ba7929d0d1c3dc4ed3  sources/knowledge-hub/03 Learning/AI Learning/N8n/Reddit n8n AI Learning Roadmap Synthesis - 2026-06-04.md
+e29f20456315fbeaafb7e1fa23a92091ac81350e04fb176bb54df3382a8eda42  sources/knowledge-hub/03 Learning/AI Learning/N8n/n8n-complete-learning-guide.md
+e3f34f8d7cbc5384cc3c23083e13273ecc978c8e2ae8166bbcc1581dd978d5d8  sources/knowledge-hub/03 Learning/AI Learning/Vector DBs/vector-databases-guide.md
+83f300cadcd40491ee823990f4c4d54268f1517e02f0c3bb4c22047ec4d00acb  sources/knowledge-hub/03 Learning/GIS/Inbox Guides 2026-08-20/GIS Tech Stack — Canonical Guide.md
+c721cf7415d5abbf282f660876e8902abb3cc048b770613a401e1c42c2a5d0a3  sources/knowledge-hub/03 Learning/Technology/Docker/Docker - Complete Practical Guide.md
+46de90a6fc462243ac4fa23ebf93149ef36056457e71eb0164e04aefb6410906  sources/knowledge-hub/03 Learning/Technology/Docker/Docker and Kubernetes — Practical Beginner Guide.md
+07f1a3c6145c585e2e77eb401ca64f0ed08f03d198e8e6e40d3ad7f98babbf4c  sources/knowledge-hub/05 AI Systems/Agents/Agents Master Document.md
+c7eefda79384bc0a729c14753e2c37472b6c5f8d93a7170e79acc85276ae72c5  sources/knowledge-hub/05 AI Systems/Architecture/AI Stack/AI Automation Backend First Workflow Architecture Guide - Reddit r-AiAutomations - 2026-06-27.md
+c8a246a11d1e18344f757d89ed012a6146d64a56aac2e081a72f0a2cd855f145  sources/knowledge-hub/05 AI Systems/GIS Agent Build/Dymaxion Source Pack/gis agents/00 README - Dymaxion GIS Agent Harness.md
+9ed56fac1f18798d6cbd23715f5acf9f691f5197c23bc8bba40ac296025f524d  sources/knowledge-hub/05 AI Systems/GIS Agent Build/runbooks/R08-web-app-dev-capability.md
+930c6f0c3b233120ca7cb49460895a5d06683a8cff38f5200e90ad3af3a4d536  sources/knowledge-hub/05 AI Systems/Hermes/Hermes Dashboard.md
+486fcaa3b73924f5aa1439a6a29b849bd8fc0c5b43733a21ad01dc8606e511d9  sources/knowledge-hub/05 AI Systems/Hermes/Hermes Obsidian Semantic Search Setup 2026-05-02.md
+f09e4c5d280c714009699e678a0df347f3a5ef3ae75cb7c9b53b6a62151dee6a  sources/knowledge-hub/05 AI Systems/Hermes/Hermes Primary Agent Configuration Recap - Stable Personal Assistant Setup.md
+c1d87698fe52f2846f65f787cb02b6a605a4178cf6c3590595f32a31b6e27950  sources/knowledge-hub/05 AI Systems/Hermes/How to Build Operator's Hermes Obsidian Knowledge Vault That Gets Smarter Every Day.md
+483ea3d0541249aec3e452b5c3433c752fb813f5430396ad8d7cd3586d18e554  sources/knowledge-hub/05 AI Systems/Hermes/Memory Backbone/Agent Stack Map.md
+6994824798642f3ec375787b7559cbb14daf9debb63eacbb928adecbb4cf35f4  sources/knowledge-hub/05 AI Systems/Hermes/Memory Backbone/Hermes Memory Backbone.md
+5aaf389c0e71e36b44df7048c95bb3e0ff6b895e1dbbf57f4e8e6986648bf485  sources/knowledge-hub/05 AI Systems/Hermes/Personal Assistant OS/Personal Assistant OS.md
+20ec602edbec11a46efae87de701dc886f101dae0fd0c6afa3d7ff6829203b93  sources/knowledge-hub/05 AI Systems/Hermes/Runbooks/Configure a New Hermes Agent From Scratch - No Private Profile Access or Secret File Editing.md
+ce1010830305c733b89d423cbc61035da1f2dc7802e99cd4defdf1acffdff703  sources/knowledge-hub/05 AI Systems/Hermes/Runbooks/Expert Guide - Setting Up and Maintaining Hermes Agents for Operator and Clients.md
+3257bb8a4832ac0e581a07ac725cf09e458437306fcfc44c2e90a3c7c3bfa958  sources/knowledge-hub/05 AI Systems/n8n/n8n Agent Guardrails Implementation Guide - 5 Projects.md
+f21c22b734e3c49bc29ba4d085831d79dbb80ab500ec93aa593170596cadf4d9  sources/knowledge-hub/06 SOPs/Website and Webmap Generation Procedures.md
