@@ -1646,6 +1646,25 @@ Build a synthetic customer knowledge agent that:
 
 Definition of done: another reviewer can reproduce the tests, trace each control to evidence, identify residual risks and safely disable/recover the system.
 
+### 15.15 — GIS and location-intelligence security
+
+Location data needs an explicit security review because coordinates, routes, parcel ownership, infrastructure, habitat, health, asset and movement data can reveal people, vulnerable sites or operational patterns even when obvious names are removed.
+
+Apply these controls:
+
+1. **Classify spatial sensitivity** — record whether layers contain people, precise addresses, critical assets, protected resources, customer operations or time-linked movement. Treat geometry, attributes, metadata, tiles, screenshots and derived outputs as data—not just the source table.
+2. **Minimize precision and coverage** — provide only the fields, geography, zoom, resolution and time window needed. Aggregate, mask, jitter or generalize where appropriate, but do not call data anonymous without a defensible re-identification assessment.
+3. **Enforce spatial and attribute authorization outside the model** — use project/tenant-scoped identities, layer and field allowlists, row/spatial filters and separate storage/indexes. A prompt instruction such as “only show this project” is not access control.
+4. **Use registered GIS operations** — expose reviewed jobs with typed parameters instead of model-generated ArcPy, SQL, shell or arbitrary geoprocessing code. Validate CRS, extent, geometry type, record count, output path and resource limits before execution.
+5. **Default to read-only and copy-on-write** — write new datasets, versions or staging services first. Count and preview affected features; preserve inputs and rollback artifacts. Overwrite, delete, bulk edit, schema change and production service publication require explicit approval.
+6. **Bind production approval precisely** — record environment, portal/server, item/service/layer ID, operation, spatial/record scope, payload or diff/hash, approver, limits, expiry, one-time execution ID and rollback target. Any change requires a new approval.
+7. **Control third-party location services** — assess what addresses, coordinates, search terms and identifiers leave the boundary through geocoders, basemaps, routing APIs, imagery, telemetry or model providers. Verify contract, region, retention and training terms for the exact service/tier.
+8. **Prove spatial correctness and containment** — compare before/after counts, schema, extent, CRS, nulls, geometry validity and representative maps. Test cross-project denial, unexpected national/global extents, malformed geometry, duplicate/replay writes and rollback. Consequential surveying, engineering, environmental or regulatory outputs retain accountable professional review.
+
+Customer questions should include: **Which locations and attributes can the AI see? At what precision? Can another project or tenant retrieve them? Which third parties receive coordinates or addresses? Can the agent overwrite, delete or publish a layer? What exact evidence and approval precede a production GIS change?**
+
+**GIS capstone variant:** build a synthetic, project-scoped worker that accepts only registered jobs; reads approved inputs; writes a new output; rejects out-of-scope paths, layers and extents; produces a before/after map and count/diff report; and requires a payload-bound one-time approval before a staged service update. The model may orchestrate, but deterministic GIS engines and accountable reviewers control execution and acceptance.
+
 ### Compliance and professional boundaries
 
 Do not convert a technical workflow into an unsupported legal, contractual or certification claim. SOC 2 and ISO certifications apply to defined organizational scopes; HIPAA readiness may depend on contracts such as a BAA and the complete operating environment; GDPR and EU AI Act duties depend on facts and role; GxP/GMP/GDP, FDA/EMA/Part 11, licensed surveying, professional engineering, environmental certification, underwriting and legal determinations require separately funded controls and accountable reviewers.
