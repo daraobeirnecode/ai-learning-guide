@@ -129,7 +129,7 @@ Use this reusable evidence block after each module:
 | What is n8n and how do workflows differ from agents?      | [12 — Workflow automation with n8n](#chapter-12)                                      |     |
 | What workflow types exist in the vaults?                  | [13 — Master workflow-pattern taxonomy](#chapter-13)                                  |     |
 | How do I deploy and operate systems?                      | [14 — Infrastructure and deployment](#chapter-14) and [17 — Production operations](#chapter-17) |     |
-| How do I secure and evaluate AI?                          | [15 — Observability, evaluation and security](#chapter-15)                            |     |
+| How do I secure and evaluate AI?                          | [15 — AI security, observability and customer assurance](#chapter-15)                            |     |
 | How do GIS and spatial AI fit?                            | [16 — GIS and spatial AI engineering](#chapter-16)                                    |     |
 | How do I sell AI services?                                | [18 — Designing and selling AI services](#chapter-18)                                 |     |
 | What should I build to prove mastery?                     | [19 — Capstone ladder](#chapter-19)                                                   |     |
@@ -1306,52 +1306,366 @@ Deploy a small non-sensitive local Compose application with an API and database.
 
 <a id="chapter-15"></a>
 
-## 15 — Observability, evaluation and security
+## 15 — AI security, observability and customer assurance
 
-### Observability
+> **Security objective:** make the system easy to inspect, hard to misuse, limited in blast radius and recoverable when a control fails. Model behavior is only one layer; security comes from the surrounding architecture, identities, data boundaries, tools, approvals, tests and operations.
+
+### What expertise means
+
+An AI-security expert does not claim that a model is “safe” because it refused a jailbreak demo. Expertise means being able to:
+
+- separate cybersecurity, AI safety, privacy, governance, quality, reliability and legal compliance;
+- draw the complete system and data flow, not just name the model;
+- identify assets, actors, trust boundaries, attacker-controlled inputs, capabilities and consequences;
+- explain direct and indirect prompt injection without pretending it has a perfect filter;
+- reduce agent authority with scoped identities, typed tools, deterministic policy and approval gates;
+- evaluate models, retrieval, tools, workflows and side effects with repeatable evidence;
+- assess models, MCP servers, Agent Skills, packages, datasets and vendors as supply-chain components;
+- answer customer questions with current contract and architecture evidence;
+- state residual risk and responsibility honestly;
+- operate incident response, rollback, deletion and recovery procedures.
+
+### 15.1 — Keep six disciplines distinct
+
+| Discipline | Primary question | Typical evidence |
+|---|---|---|
+| Cybersecurity | Can an attacker gain access, execute actions, steal data or disrupt service? | Threat model, access matrix, scan/test results, logs, incident runbook. |
+| AI safety | Can the system produce or pursue harmful behavior even without a conventional compromise? | Safety policy, misuse tests, human-oversight design, escalation rules. |
+| Privacy | Is personal or confidential data collected, processed, retained, transferred and deleted appropriately? | Data inventory, flow diagram, retention schedule, DPA and subprocessor list. |
+| Governance | Who owns decisions, exceptions, model changes and accepted risk? | AI policy, system owner, risk register, approval records, change log. |
+| Quality and reliability | Is the output accurate, grounded, stable and available enough for its use? | Evaluation set, acceptance criteria, monitoring, SLOs, fallback and recovery tests. |
+| Compliance | What laws, contracts, certifications and sector rules apply to this use in this jurisdiction? | Qualified legal/compliance analysis, control mapping, audit or certification evidence. |
+
+A hallucination can become a security issue when it causes an unsafe action; a privacy failure can become a security incident when data is disclosed; and poor governance can leave both unowned. Keep the concepts distinct while showing their dependencies.
+
+### 15.2 — Threat-model the whole AI system
+
+Use this system map before discussing controls:
+
+```text
+user / attacker
+      ↓
+interface and application
+      ↓
+workflow / agent orchestrator
+      ↓
+model and system instructions
+   ↙       ↓         ↘
+retrieval  memory    tools / MCP / skills
+   ↓       ↓         ↓
+vector DB  state     SaaS, database, shell, files, GIS, email
+      ↘     ↓       ↙
+logs, traces, evals, approvals and incident evidence
+      ↓
+model, hosting and integration vendors / subprocessors
+```
+
+For every arrow, record:
+
+1. **Asset:** data, identity, money, model, workflow, infrastructure, reputation or regulated decision.
+2. **Actor:** end user, administrator, developer, vendor, insider, attacker or another agent.
+3. **Trust boundary:** browser, API, tenant, network, model provider, retrieval corpus, tool server or worker.
+4. **Untrusted input:** prompt, email, webpage, PDF, image, database row, GIS attribute, tool result, memory or skill instructions.
+5. **Capability:** read, write, send, publish, execute, delete, purchase, approve or change permissions.
+6. **Consequence:** disclosure, corruption, unsafe decision, financial loss, outage, compliance breach or irreversible action.
+7. **Control and owner:** what prevents, detects, contains and recovers—and who is accountable.
+
+The model is not the security boundary. Deterministic software and platform controls must enforce authorization, validation, network/file boundaries, approval and limits even when the model is confused or compromised.
+
+### 15.3 — Use frameworks for different jobs
+
+| Framework | Use it for | Important boundary |
+|---|---|---|
+| [NIST AI RMF](https://www.nist.gov/itl/ai-risk-management-framework) and [Generative AI Profile](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence) | Organize work through **Govern, Map, Measure, Manage** and identify GenAI-specific risk actions. | Voluntary risk-management guidance, not a certification. NIST says AI RMF 1.0 is being revised; verify the current version. |
+| [NIST Cyber AI Profile](https://www.nccoe.nist.gov/projects/cyber-ai-profile) | Connect AI to the Cybersecurity Framework across security of AI systems, AI-enabled attacks and AI-enabled defense. | Still under development as of 2026-08-27; do not present it as a final standard. |
+| [OWASP GenAI Security Project](https://genai.owasp.org/) | Engineering checklist for LLM, GenAI and agentic application risks. | A taxonomy guides testing; it does not prove a system is secure. |
+| [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/) | Threat-model agents that plan, use tools, communicate, remember and act. | Map each risk to the actual architecture and consequences. |
+| [OWASP Agentic Skills Top 10](https://owasp.org/www-project-agentic-skills-top-10/) | Review the behavior-layer supply chain: Agent Skills, manifests, scripts, metadata, permissions and updates. | Static scanning alone is insufficient; inspect the complete package and runtime behavior. |
+| [MITRE ATLAS](https://atlas.mitre.org/) | Describe adversary tactics, techniques and attack chains using a shared vocabulary. | A living knowledge base, not a control framework or certification. |
+| [CISA/NSA/FBI AI Data Security guidance](https://www.cisa.gov/news-events/alerts/2025/05/22/new-best-practices-guide-securing-ai-data-released) | Protect training, testing, deployment and operational data integrity across the lifecycle. | Apply proportionately to the customer’s data and mission. |
+| [EU AI Act — European Commission](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai) | Classify prohibited, high-risk, transparency and general-purpose-model obligations for EU-connected uses. | Legal applicability depends on role, use, jurisdiction and current law. Obtain qualified advice. As of 2026-08-27, the Act is generally applicable and transparency rules are in effect, while specified high-risk rules have later staged dates. |
+
+Use OWASP to find engineering failure modes, ATLAS to reason about attack chains, NIST to organize accountable risk work, CISA guidance to protect AI data and qualified counsel/auditors for legal or certification conclusions.
+
+### 15.4 — Know the agentic threat vocabulary
+
+OWASP’s 2026 agentic taxonomy names ten risks. Be able to translate each into a design question:
+
+| ID | Risk | Design question and primary controls |
+|---|---|---|
+| ASI01 | Agent Goal Hijack | Can untrusted content redirect the agent’s objective? Separate data from authority, constrain plans and verify goal continuity. |
+| ASI02 | Tool Misuse | Can legitimate tools be used with harmful targets or parameters? Use typed schemas, allowlists, limits, previews and policy checks. |
+| ASI03 | Identity and Privilege Abuse | Does the agent inherit broad or shared credentials? Use per-agent/per-tenant identities, short-lived tokens and least privilege. |
+| ASI04 | Agentic Supply Chain Vulnerabilities | Can a model, MCP server, skill, dependency, dataset or update change behavior? Record provenance, pin versions/hashes and test in isolation. |
+| ASI05 | Unexpected Code Execution | Can natural language reach a shell, interpreter, template engine or unsafe deserializer? Prefer registered operations; sandbox code and restrict egress. |
+| ASI06 | Memory and Context Poisoning | Can attacker-controlled content persist and influence later runs? Control memory writes, preserve provenance, scan and support rollback/quarantine. |
+| ASI07 | Insecure Inter-Agent Communication | Can one agent spoof another or pass unauthenticated instructions? Authenticate messages, validate schemas and propagate minimum authority. |
+| ASI08 | Cascading Failures | Can one bad output amplify through tools or agents? Add circuit breakers, bounded retries, budgets, checkpoints and safe degraded modes. |
+| ASI09 | Human-Agent Trust Exploitation | Can polished output induce a person to approve the wrong action? Show evidence, uncertainty, exact diffs and meaningful approval context. |
+| ASI10 | Rogue Agents | Can an agent evade oversight, conceal behavior or pursue a conflicting objective? Bound runtime and resources, monitor independently, revoke quickly and require accountable ownership. |
+
+For Agent Skills specifically, also test for malicious skills, compromised dependencies, excessive permissions, unsafe metadata/parsing, mutable remote instructions, weak isolation, update drift, weak scanning, missing governance and unsafe cross-platform reuse. A reputable publisher reduces—but never eliminates—review requirements.
+
+### 15.5 — Core threat-and-control matrix
+
+| Threat | Prevent | Detect | Contain and recover |
+|---|---|---|---|
+| Direct or indirect prompt injection | Treat external content as data; delimit provenance; keep policy outside model control; restrict available tools. | Injection/misuse eval set, anomalous tool-call alerts, source-aware traces. | Block consequential action, quarantine source, revoke session and retest. |
+| Sensitive-data disclosure or exfiltration | Minimize/redact data; no secrets in prompts; tenant isolation; domain egress allowlist. | DLP/secret scanning, unusual destination/volume alerts, access audit. | Revoke/rotate credentials, contain destination, preserve minimal evidence and notify under the runbook. |
+| Improper output handling | Typed output, schema validation, parameterized queries, fixed path/recipient/host allowlists. | Rejected-output metrics and adversarial malformed-output tests. | Fail closed; do not pass raw model output to interpreters or action targets. |
+| Excessive agency and privilege abuse | Read-only/draft-only default; scoped credentials; separate planner from executor. | Capability inventory, access reviews and attempted-denial logs. | Kill switch, token revocation, transaction limits and rollback. |
+| RAG/vector or memory poisoning | Approved ingestion, provenance, access control, content hashing and review before durable memory writes. | Corpus-diff monitoring, retrieval anomaly tests, canary documents. | Remove/quarantine poisoned items, rebuild index and invalidate affected memory. |
+| Tool, MCP, skill or dependency compromise | Complete-package review, signed/verified provenance where available, pinned immutable revision and sandboxed staging. | Source/SBOM monitoring, static plus behavioral checks, network/filesystem telemetry. | Disable component, roll back, rotate exposed credentials and re-review dependants. |
+| Unsafe generated code or shell execution | Registered operations preferred; sandbox, non-root identity, read-only base, scoped workspace and restricted network. | Syscall/process/file/network monitoring and escape tests. | Terminate sandbox, discard workspace, preserve evidence and patch the execution path. |
+| Model/data poisoning or model drift | Dataset provenance, approval gates, model/version pinning and acceptance tests. | Golden-set regression, behavior drift and data-quality monitoring. | Roll back model/data version, block release and investigate provenance. |
+| Cost denial, loops or cascading failure | Turn/tool/subagent/time/token/cost limits; bounded retries and idempotency. | Budget, loop, latency and error-rate alerts. | Circuit breaker, queue pause, safe degraded mode and replay from durable state. |
+| Hallucination and human trust exploitation | Retrieval/citations, deterministic computation, calibrated uncertainty and accountable review. | Groundedness/citation checks and decision-impact sampling. | Prevent automatic high-impact action; correct record and notify affected users. |
+| Cross-tenant exposure | Separate storage, credentials, indexes, caches and authorization context; test negative access. | Tenant-boundary tests and access-log correlation. | Disable affected path, scope exposure, notify under contract and repair isolation. |
+| Observability leakage | Redact before trace/log ingestion; short retention; restricted access; no raw secrets or hidden reasoning. | Secret/PII scans and log-access review. | Delete under policy, rotate exposed credentials and narrow captured fields. |
+
+### 15.6 — Defense architecture: prevention is not one filter
+
+Build controls in layers:
+
+1. **Scope and data classification** — define purpose, users, prohibited uses, data classes, source of truth, retention and deletion before selecting a model.
+2. **Identity** — separate human, service, agent and tenant identities; use scoped, attributable and rotatable credentials.
+3. **Input and retrieval boundary** — authenticate sources where possible; label provenance; normalize files; block unsafe URLs/paths; never treat retrieved text as policy.
+4. **Model contract** — narrow task, explicit uncertainty behavior and structured output. Assume system prompts can leak and model instructions can be bypassed.
+5. **Deterministic validation** — enforce schemas, allowlists, business rules, authorization and risk limits outside the model.
+6. **Capability boundary** — give each step only required tools. Prefer read-only → draft-only → approval-gated write → exceptional destructive action.
+7. **Approval contract** — bind approval to the exact action, target, identity, payload/diff, limit, expiry and one-time execution ID. Any change requires new approval.
+8. **Isolation and egress** — use run-scoped workspaces, non-root execution, resource limits and network allowlists. Never pass model-controlled host paths or whole commands to a subprocess.
+9. **Supply-chain controls** — inventory models, datasets, libraries, containers, MCP servers and skills; review full packages; pin and monitor changes.
+10. **Evaluation and operations** — test before release, trace safely, detect drift/abuse, preserve rollback and rehearse incident response.
+
+Prompt injection is not “solved” by a classifier or system prompt. The defensible customer answer is: **we assume malicious instructions may reach the model and design the system so model compromise does not automatically grant sensitive data, unrestricted communication or consequential action.**
+
+### 15.7 — Observability and security evaluation
 
 - **Log:** event record explaining what happened.
-- **Metric:** numeric time series such as latency, errors or cost.
-- **Trace:** path of one request through components.
-- **AI trace:** prompt/context, model, response, tokens, latency, cost and evaluation metadata—with sensitive data controls.
-- **Alert:** condition requiring attention.
+- **Metric:** numeric time series such as denials, latency, errors, tool calls or cost.
+- **Trace:** one request’s path through retrieval, models, tools and validators.
+- **AI trace:** model/version, redacted context, response, tool decisions, evaluation metadata, latency and cost—with sensitive-data controls.
+- **Audit record:** attributable security or business action with actor, target, decision, evidence and result.
+- **Alert:** actionable condition with owner and runbook.
 
-Langfuse is used in the documented private stack for AI tracing. LiteLLM provides model routing, policy/cost control and a consistent model interface. Neither replaces application logs, database audit records or acceptance tests.
+Do not log secrets, raw authorization headers, unnecessary customer content or hidden reasoning. Observability systems are data stores and need the same classification, access, retention, deletion and incident controls as the primary application.
 
-### Evaluation layers
+Evaluate at distinct layers:
 
-1. input/data quality;
-2. retrieval relevance;
+1. input and data quality;
+2. retrieval relevance, provenance and tenant filtering;
 3. answer groundedness and citation correctness;
-4. structured-output/schema correctness;
-5. tool-selection and tool-result accuracy;
-6. workflow completion and side-effect correctness;
-7. latency, cost and reliability;
-8. human usefulness and acceptance;
-9. safety and policy compliance.
+4. structured-output and schema correctness;
+5. authorization, tool selection and parameter safety;
+6. workflow completion, idempotency and side-effect correctness;
+7. injection, exfiltration, privilege and abuse resistance;
+8. latency, cost, availability and safe degradation;
+9. human usefulness, uncertainty communication and approval quality;
+10. policy, privacy and professional-boundary compliance.
 
-### Threat model
+A useful security suite includes normal cases, malformed inputs, direct and indirect injection, poisoned documents, cross-tenant queries, over-broad tool requests, unauthorized targets, secret-like strings, duplicate/replay actions, outage/timeout cases and rollback verification. Record model, prompt, tool and dataset versions so failures are reproducible.
 
-| Risk | Control |
-|---|---|
-| Prompt injection in email/web/document | Treat content as data; separate authority; filter tools; require approval. |
-| Secret leakage | Keep secrets out of prompts/Git/logs; redact; least privilege; rotate if exposed. |
-| Excessive agent permissions | Small toolsets, sandbox, scoped credentials, read-only default. |
-| Unsafe plugin/MCP package | Source review, immutable pin, capability filtering and isolated test. |
-| Cross-customer exposure | Per-tenant data, credentials, storage, authorization and observability. |
-| Hallucinated facts | Retrieval, citations, deterministic validation and human review. |
-| Duplicate external action | Idempotency keys and durable action ledger. |
-| Irrecoverable data loss | Backups, tested restores, migration rollback and retention controls. |
-| Model/provider outage | Timeouts, queues, retries, fallback policy and degraded mode. |
-| Autonomous drift | Iteration/time/cost limits, checkpoints and explicit completion tests. |
+### 15.8 — How to answer customer security questions
+
+Use this sequence for every answer:
+
+1. **Clarify scope:** exact product, model/provider, account tier, deployment, data class, users, integrations, geography and use case.
+2. **State the control:** describe what the implemented architecture actually does—not a planned feature or a vendor slogan.
+3. **Show evidence:** diagram, configuration/status proof, contract term, test result, log, access record, scan, backup/restore result or independent report.
+4. **State residual risk:** explain what the control does not guarantee and what assumptions it depends on.
+5. **Assign responsibility and next step:** customer, provider, implementer, model vendor, legal/compliance reviewer or independent assessor.
+
+Use the formula:
+
+> **Control → evidence → residual risk → responsibility.**
+
+Never answer “yes, it is secure/compliant” without scope. Prefer: “For this deployment and data class, these controls are implemented and these tests passed as of this date. These risks remain. Legal applicability or certification requires the named accountable reviewer.”
+
+### 15.9 — Customer security Q&A playbook
+
+#### “Is our data used to train the model?”
+
+Do not generalize from a vendor brand. Training, abuse monitoring and retention can vary by product, tier, feature and contract. Verify the current service terms, DPA and account data controls. Evidence should include the exact product/tier, approved configuration and contract language. State whether retrieval indexes, logs, fine-tunes, feedback and human review are separately governed.
+
+#### “Where is our data stored, processed and retained?”
+
+Show a data-flow and subprocessor diagram covering prompts, files, embeddings, tool payloads, traces, backups and support systems. State regions and retention from current contracts/configuration, not memory. Identify deletion behavior, backup lag and any cross-border transfer mechanism. Residual risk includes vendor and support-path dependencies.
+
+#### “Who can access our data?”
+
+Show roles, service identities, support access, tenant boundaries and privileged-access review. Use SSO/MFA where appropriate, scoped service accounts, no shared admin identities and documented joiner/mover/leaver procedures. Distinguish customer administrators, implementer access and vendor support access.
+
+#### “How do you prevent data from leaking between customers?”
+
+Describe actual isolation: separate credentials, authorization context, storage/schema or database, vector indexes/filters, caches, logs and backups. Provide negative cross-tenant tests. “We include tenant ID in the prompt” is not isolation; enforcement belongs in deterministic authorization and data access.
+
+#### “How do you handle prompt injection?”
+
+Say explicitly that no single control guarantees elimination. Show how external content is treated as untrusted, tools are minimized, authorization is deterministic, egress is restricted and consequential actions require exact approval. Provide injection test results and explain the remaining blast radius if a model is manipulated.
+
+#### “Can the AI send, edit, publish, delete or purchase on its own?”
+
+Present the capability matrix. Read-only and draft-only should be the default. For writes, show target allowlists, typed parameters, previews/diffs, limits, approval binding, idempotency, audit and rollback. For destructive or regulated actions, prefer a safer alternative and accountable human execution.
+
+#### “How do you reduce hallucinations and bad decisions?”
+
+Separate correctness from security. Use authoritative retrieval, citations, deterministic calculations, schema/rule validation, confidence/abstention behavior and human review proportional to impact. Show evaluation results on customer-representative cases; do not promise perfect accuracy.
+
+#### “Are prompts, outputs and traces logged?”
+
+Explain exactly what is captured, redacted, encrypted, retained, accessible and deletable. Logging supports audit and incident response but creates another sensitive data store. Avoid raw secrets, unnecessary content and hidden reasoning traces.
+
+#### “How are models, MCP servers, Agent Skills and dependencies approved?”
+
+Show the inventory, provenance, publisher, license, reviewed paths, static/behavioral checks, permissions, pinned revision/hash, update policy and isolated test. Review the full package, not only its README or `SKILL.md`. A static review is a dated risk-reduction measure, not proof of runtime safety.
+
+#### “How do you test security?”
+
+Describe threat-model review, automated unit/integration checks, abuse and injection suites, cross-tenant tests, tool/authorization tests, dependency/container scans and targeted human testing. Tie findings to remediation and regression tests. Clarify what was not tested and whether testing was internal or independent.
+
+#### “What happens if there is an incident?”
+
+Show severity definitions, kill switch, credential revocation, containment, evidence preservation, contractual notification path, recovery, reactivation approval and post-incident regression test. State RTO/RPO only if backup and restore have been exercised.
+
+#### “Are you SOC 2, ISO 27001/42001, HIPAA, GDPR or EU AI Act compliant?”
+
+Do not turn architecture into a certification or legal conclusion. Distinguish organizational certification, a vendor report, contractual controls and this specific system’s design. State which controls align, provide available evidence and route legal, audit or regulated-readiness conclusions to qualified reviewers. HIPAA may require a BAA and a compliant operating environment; GDPR and the EU AI Act depend on role, purpose, data and jurisdiction.
+
+#### “Can we delete or export our data and leave?”
+
+Show export formats, deletion workflow, retention exceptions, backup aging, credential revocation and transition assistance. Test the procedure. Define what the model vendor, hosting provider and implementer each delete and on what timeline.
+
+#### “What if the model or provider changes?”
+
+Maintain model/version and vendor inventories, acceptance tests, change review and fallback plans. Re-run security and quality evaluations after material model, prompt, retrieval, tool or policy changes. Do not silently switch providers when data terms or regions differ.
+
+#### “Can you provide a penetration-test report?”
+
+Answer precisely whether testing was internal, automated or independent and define scope/date/version. Traditional penetration testing should be supplemented with AI-specific testing of injection, retrieval, tool use, memory, identity, egress and action consequences. Never relabel a scanner output as an independent penetration test.
+
+### 15.10 — Customer security discovery questions
+
+Ask these before proposing architecture or price:
+
+- What business outcome and decision/action will the system support?
+- Who are the users, administrators, reviewers and affected people?
+- What data classes enter, where are sources of truth and what must never enter?
+- Which jurisdictions, contracts, sector rules and customer policies may apply?
+- Is the customer a controller, processor, provider, deployer, operator or several roles?
+- Which models, hosting regions, tools, MCP servers and subprocessors are allowed?
+- What identities and permissions are required for each step?
+- Which outputs are advisory, draft, reversible, consequential or destructive?
+- What needs human review, and what exact evidence must the reviewer see?
+- What must be logged, redacted, retained, deleted and exported?
+- What are acceptable accuracy, latency, cost, outage and recovery thresholds?
+- What incidents require notification, to whom and within what contractual window?
+- What evidence does procurement/security require before pilot and production?
+- Who accepts residual risk and who can stop the system?
+
+If these questions are unanswered, the secure default is a synthetic-data, single-tenant, read-only or draft-only pilot with no autonomous external writes.
+
+### 15.11 — The customer assurance evidence pack
+
+A credible delivery should produce:
+
+1. system context and data-flow diagrams;
+2. AI/model/tool/MCP/skill/dependency inventory with versions and owners;
+3. data classification, retention/deletion schedule and subprocessor list;
+4. threat model mapped to architecture and business consequences;
+5. identity, role and capability matrix;
+6. control matrix with implementation status and evidence links;
+7. evaluation/red-team plan, results, limitations and regression suite;
+8. approval, audit, change-control and release records;
+9. incident-response, backup/restore, rollback and business-continuity runbooks;
+10. residual-risk register with named owner and acceptance decision;
+11. customer-facing security FAQ using the Q&A pattern above;
+12. current contracts or independent reports where applicable, shared under the proper confidentiality terms.
+
+Do not fabricate evidence to satisfy a questionnaire. Mark controls as **implemented**, **partially implemented**, **planned**, **not applicable** or **not verified**, with date, owner and test method.
+
+### 15.12 — AI security review and delivery lifecycle
+
+1. **Discover:** use case, people, data, decisions, jurisdictions, vendors and customer evidence requirements.
+2. **Map:** architecture, data flows, trust boundaries, identities, tools, supply chain and consequence levels.
+3. **Threat-model:** abuse cases across prompt, data, model, retrieval, memory, tool, identity, tenant, infrastructure and human approval.
+4. **Design controls:** minimize data and agency; enforce deterministic authorization, isolation, egress, validation and rollback.
+5. **Build in non-production:** synthetic or minimized data, separate credentials and no unapproved external actions.
+6. **Verify:** functional, security, privacy, misuse, resilience, tenant and recovery tests; record limitations.
+7. **Release gate:** accountable owner reviews evidence, residual risk, rollback and support readiness.
+8. **Operate:** monitor, patch, reassess vendors/models, review access, run incidents and test restore/deletion.
+9. **Retire:** revoke identities, export/return data, delete under schedule, preserve required records and close subprocessors.
+
+### 15.13 — Mastery path: from informed operator to customer-facing expert
+
+#### Level 1 — Foundations
+
+Learn classical identity, authorization, secrets, network, application, data and supply-chain security. Read the current NIST AI RMF, OWASP GenAI material and MITRE ATLAS overview. Artifact: one-page vocabulary map distinguishing security, safety, privacy, quality, governance and compliance.
+
+#### Level 2 — Threat modeling
+
+Draw one RAG or agent system, enumerate assets/actors/boundaries and write at least 20 abuse cases. Map them to OWASP and ATLAS. Artifact: system diagram, threat model and risk register.
+
+#### Level 3 — Guarded implementation
+
+Build a single-tenant, synthetic-data workflow with read-only retrieval, typed output, scoped tools, path/host allowlists, secret-safe logs and an exact approval contract for one reversible write. Artifact: working demo plus control matrix.
+
+#### Level 4 — Security evaluation
+
+Create normal, malformed and adversarial tests covering injection, poisoning, cross-tenant access, unauthorized tools, data leakage, loops, retries and rollback. Run on every material change. Artifact: versioned evaluation set and results with limitations.
+
+#### Level 5 — Supply-chain and agent security
+
+Review one model/package and one Agent Skill or MCP server end-to-end: publisher, license, complete tree, scripts, dependencies, permissions, network/file behavior, mutable remote content, version pinning and isolated runtime. Artifact: dated review and approval/rejection decision.
+
+#### Level 6 — Operations and incident response
+
+Simulate credential exposure, poisoned retrieval and an unauthorized action attempt. Exercise kill switch, revocation, containment, restore, notification draft and regression test. Artifact: incident report and recovered system evidence.
+
+#### Level 7 — Customer assurance
+
+Conduct a mock security discovery, answer the Q&A above, complete a realistic questionnaire without overclaiming, and present residual risk to a technical and non-technical reviewer. Artifact: customer assurance pack and recorded review.
+
+Expert status is demonstrated by repeatable artifacts, working controls, honest limitations and successful exercises—not by memorizing acronyms or self-assigning a certification.
+
+### 15.14 — Capstone: secure customer knowledge agent
+
+Build a synthetic customer knowledge agent that:
+
+- retrieves only from an approved tenant corpus;
+- preserves source, date and access metadata;
+- treats document text as untrusted;
+- has no external write tool during retrieval;
+- returns cited structured output or abstains;
+- uses a separate approval-gated executor for one reversible action;
+- enforces host/path/recipient/record-count limits outside the model;
+- logs redacted security events without raw secrets;
+- supports kill, rollback, export and deletion;
+- includes a malicious-document test corpus, cross-tenant tests and cost/loop limits;
+- includes an AI component inventory, threat model, control matrix, evaluation results, incident runbook and customer FAQ.
+
+Definition of done: another reviewer can reproduce the tests, trace each control to evidence, identify residual risks and safely disable/recover the system.
 
 ### Compliance and professional boundaries
 
-Do not convert a technical workflow into an unsupported legal or regulatory claim. GxP, GMP, GDP, HIPAA, FDA, EMA, Part 11, licensed surveying, professional engineering, environmental certification, underwriting and legal determinations require separately funded controls and accountable reviewers.
+Do not convert a technical workflow into an unsupported legal, contractual or certification claim. SOC 2 and ISO certifications apply to defined organizational scopes; HIPAA readiness may depend on contracts such as a BAA and the complete operating environment; GDPR and EU AI Act duties depend on facts and role; GxP/GMP/GDP, FDA/EMA/Part 11, licensed surveying, professional engineering, environmental certification, underwriting and legal determinations require separately funded controls and accountable reviewers.
+
+The useful expert answer is not “compliant.” It is: **these requirements may apply; these controls and evidence currently exist; these gaps and residual risks remain; this named qualified party must determine or attest the legal/audit conclusion.**
 
 ### Practice
 
-Threat-model the n8n exercise. Add five abuse cases, three metrics, an evaluation set, one alert, one rollback and one explicit approval boundary.
+Produce an **AI Security Assurance Packet** for the n8n exercise or capstone:
+
+- system/data-flow diagram;
+- 20 abuse cases and a prioritized risk register;
+- model/tool/skill/dependency inventory;
+- access and capability matrix;
+- ten security metrics/evaluations;
+- prompt-injection and cross-tenant test cases;
+- exact approval contract for one write;
+- one incident scenario, rollback and restore result;
+- answers to the customer Q&A above with evidence and residual risk;
+- a two-minute executive explanation and a ten-minute technical review.
 
 ### Go deeper
 
@@ -1361,6 +1675,19 @@ Threat-model the n8n exercise. Add five abuse cases, three metrics, an evaluatio
 - [n8n agent guardrails implementation guide](../sources/knowledge-hub/05%20AI%20Systems/n8n/n8n%20Agent%20Guardrails%20Implementation%20Guide%20-%205%20Projects.md)
 - [Technical Lead Operating Guide](../sources/inish-labs/01%20Business/Inish%20Labs%20Technical%20Lead%20Operating%20Guide%20%E2%80%94%20People%2C%20Code%2C%20AI%20Access%20and%20AI%20OS.md)
 
+### Current first-party anchors
+
+Checked 2026-08-27; re-check before a customer or regulatory claim:
+
+- [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework)
+- [NIST Generative AI Profile](https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence)
+- [NIST Cyber AI Profile](https://www.nccoe.nist.gov/projects/cyber-ai-profile)
+- [OWASP GenAI Security Project](https://genai.owasp.org/)
+- [OWASP Top 10 for Agentic Applications 2026](https://genai.owasp.org/resource/owasp-top-10-for-agentic-applications-for-2026/)
+- [OWASP Agentic Skills Top 10](https://owasp.org/www-project-agentic-skills-top-10/)
+- [MITRE ATLAS](https://atlas.mitre.org/)
+- [CISA AI Data Security guidance](https://www.cisa.gov/news-events/alerts/2025/05/22/new-best-practices-guide-securing-ai-data-released)
+- [European Commission AI Act overview and implementation timeline](https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai)
 ---
 
 # Stage IV — Specialist systems and production design

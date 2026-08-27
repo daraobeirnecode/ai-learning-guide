@@ -5,10 +5,10 @@ abd5544b1045145bbb2aa5fd261996bfb61d6ff0c3b50dafd021d9a149ab4d98  LICENSE.md
 52bfb396f3faff9c2d7c9f929f7481a5b3e55c4aa9a1ec3c32b847a06820686a  README.md
 acb89db2bdc833e92d9198742b235abb8b135f14c370676d258e6abb4af95a78  SECURITY.md
 9a1a636456094a3cd8258d11046be6e49f9d5c1144f90a565e2fe26a0b0aaee1  SOURCE_INDEX.md
-9c21eae3222d7d052edd5ec740dae9f437574002921ba7c47be0b16964ed438c  guide/MASTER_LEARNING_GUIDE.md
-0b98a8c90f33b0a2405085a7d6151d2a541e8e8ed0ae0286c332b35f948b1846  manifest/export-report.json
+dbd54aab87983be9ef82c27f52a16d565a0dac02ed5481933c51b22467fc38b8  guide/MASTER_LEARNING_GUIDE.md
+ba180907e0658a00074fb49ec7b6de223055c3b1e4744aa0b712167bc696118d  manifest/export-report.json
 d7a0ec22fcff2638dac6a1bc6c1dac4d87e2a384a83e107b3243e0edaca0bf6f  manifest/external-links.json
-b2294b241f119eed8c2d784ead6eb65d4d2772ae9a031e2ac81ea8c707d54698  manifest/sources.json
+61eb2fbeb979969101762f8c4273fb6b68df5fd2ac1f1f0de8344b7d6427a478  manifest/sources.json
 cbddeb5b6b0101161bf3d7ffd3db26e499c6b3a6587d8c8c0554157db7f0c491  manifest/validation.json
 f68ac966ee299f692fb801a5d49a023293bc79972a425bc88bfc8b1f90c1471f  scripts/validate_package.py
 905fe9bada9e6069c7ea7a31fd4204626e1b5d6110fab3e3a5c115104aca102d  sources/inish-labs/00 Inbox/GIS + AI 50-Offer Delivery Handbook — 2026-08-23/00 — START HERE.md
@@ -63,7 +63,7 @@ d786b250a1832c383a0921d3f05331637f8334b28304323cf5765ce31514b2b0  sources/knowle
 a6b1a18a538ae1133576da912fdcb5838676bf3e80879e616c6d690f48d85295  sources/knowledge-hub/03 Learning/AI Foundations/Concepts/trust-and-sandboxing.md
 510a0099ea32de3f4f9b28ed296c45e459bb74710f9ba87158a5167d75585575  sources/knowledge-hub/03 Learning/AI Learning/AI Learning Index.md
 e8ad85bfe792789693ff8dceb894d689f8885b934eed8583ab22828d1e270d70  sources/knowledge-hub/03 Learning/AI Learning/AI Learning Stack Daily Curriculum.md
-f4c93910ac192c9b83b7d7b380de42fe7382fb371fb49923971cf7b28ffa1c92  sources/knowledge-hub/03 Learning/AI Learning/AI Security/AI Security — Comprehensive Guide.md
+ae3712a4015478610bb76ce9a2f3f7282b28fb429d94b4563176a124f7db148e  sources/knowledge-hub/03 Learning/AI Learning/AI Security/AI Security — Comprehensive Guide.md
 f4599f784e4eb1b27ae001208cecc29e295e37f6954de6adb49cbdcfd9306c8e  sources/knowledge-hub/03 Learning/AI Learning/Agent Content/Agent Memory/Agent Memory — Complete Management Guide.md
 67010b8ad6a87d1172064bfa808d93547583cb85cfff78a81983345bfc97a7a2  sources/knowledge-hub/03 Learning/AI Learning/Agent Content/Agentic methods/Agentic Methods - Anatomy of an Agent Harness.md
 62ac9aa5d964f2e7b972725c03612d80eb205bb8028c657418e78b7fda058416  sources/knowledge-hub/03 Learning/AI Learning/Agent Content/Agents/Articles/AI Agent Skills Explained Simply.md
